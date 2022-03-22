@@ -2,6 +2,7 @@ import {Grid, Paper, Typography} from "@mui/material";
 import Chart from "./chart";
 import MoneyManagerCardHead from "./moneyManagerCardHead";
 import {PrimeButton} from "../../styles/globals";
+import Link from 'next/link'
 
 const MoneyManagerCard = ({title, icon, arr}) => {
     const total = arr.reduce((total,item)=> {total = total + item ; return total},0)
@@ -14,11 +15,13 @@ const MoneyManagerCard = ({title, icon, arr}) => {
                         <Chart arr={arr}/>
                     </Grid>
                     <Grid my={2}>
-                        <PrimeButton sx={{width:'100%'}}>
-                            <Typography>
-                                Add {title}
-                            </Typography>
-                        </PrimeButton>
+                        <Link href={'/moneyManager/addMoney'}>
+                            <PrimeButton sx={{width:'100%'}}>
+                                <Typography>
+                                    Add {title}
+                                </Typography>
+                            </PrimeButton>
+                        </Link>
                     </Grid>
                 </Grid>
             </Paper>

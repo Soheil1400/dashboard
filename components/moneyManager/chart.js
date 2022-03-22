@@ -24,7 +24,7 @@ const options = {
 
 const Chart = ({arr}) => {
     const [data, setData] = useState({
-        labels: ['', '', '', '', '',],
+        labels: arr.map( a => ''),
         datasets: [
             {
                 label: 'data',
