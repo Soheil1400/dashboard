@@ -3,8 +3,9 @@ import {PrimeButton} from "../../../styles/globals";
 import {theme} from "../../../theme/theme";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-import {addContact, editContact} from "../../../redux/reducers/contact.reducer";
+import {addContact, deleteContact, editContact} from "../../../redux/reducers/contact.reducer";
 import {useDispatch} from "react-redux";
 import {profileInput} from "./data";
 import {useRouter} from "next/router";
@@ -30,10 +31,13 @@ const ContactProfileInput = ({contact, setContact, setMessage, setOpen,edit ,set
             setOpen(true)
             setMessage('empty')
         }
-
     }
     const handleChange = (e) => {
         setContact({...contact, [e.target.name]: e.target.value})
+    }
+    const handleDelete = (id) => {
+        dispatch(deleteContact(id))
+        router.replace('/contact')
     }
     return (
         <Grid item xs={12}>
@@ -76,7 +80,12 @@ const ContactProfileInput = ({contact, setContact, setMessage, setOpen,edit ,set
 
                             <Grid my={1}/>
                             {edit ? (
-                                ''
+                                <PrimeButton onClick={()=>handleDelete(contact.id)} variant={'contained'}>
+                                    <DeleteOutlineRoundedIcon/>
+                                    <Typography ml={2}>
+                                        Delete
+                                    </Typography>
+                                </PrimeButton>
                             ) : (
                                 <PrimeButton type={'submit'} variant={'contained'}>
                                     <CheckRoundedIcon/>

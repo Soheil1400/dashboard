@@ -49,8 +49,12 @@ export const ContactSlice = createSlice({
         addContact: (state, action) => {
             state.items.push({...action.payload, id: Math.floor(Math.random()*1000),image:`https://avatars.dicebear.com/api/micah/:${Math.floor(Math.random()*1000)}.svg`})
         },
+        deleteContact:(state, action) => {
+            const p = state.items.findIndex((item) => item.id === action.payload);
+            state.items.splice(p, 1);
+        }
     },
 });
 
-export const { checkFavorite, editContact, addContact } = ContactSlice.actions;
+export const { checkFavorite, editContact, addContact, deleteContact } = ContactSlice.actions;
 export default ContactSlice.reducer;

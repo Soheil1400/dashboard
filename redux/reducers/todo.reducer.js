@@ -24,7 +24,8 @@ export const TodoSlice = createSlice({
             state.items.push({title:action.payload.title , done:false , id:Math.floor(Math.random()*1000)})
         },
         deleteTodo: (state, action) => {
-            state.items = state.items.filter(todo => todo.id !== action.payload)
+            const p = state.items.findIndex((item) => item.id === action.payload.id);
+            state.items.splice(p, 1);
         },
         editTodo: (state, action) => {
             state.items = state.items.map(todo => todo.id === action.payload.id ? {...todo , title:action.payload.title} : todo)
