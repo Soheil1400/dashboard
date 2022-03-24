@@ -18,7 +18,7 @@ const AlertMessage = ({message, open, setOpen}) => {
     return(
         <>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity={message === 'empty' ? 'error' : 'success'} variant={'filled'} sx={{ width: '100%' }}>
+                <Alert onClose={handleClose} severity={message === 'success' ? 'success' : 'error'} variant={'filled'} sx={{ width: '100%' }}>
                     {message}
                 </Alert>
             </Snackbar>

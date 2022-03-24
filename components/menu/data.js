@@ -20,12 +20,12 @@ export const MenuData = [
         title:'Money Manager',
         additional:[
             {
-                title:'Chart',
+                title:'Money Manager',
                 icon:<InsertChartOutlinedRoundedIcon/>,
                 link:'/moneyManager'
             },
             {
-                title:'Income / Expense',
+                title:'Add Money',
                 icon:<AddCardOutlinedIcon/>,
                 link:'/moneyManager/addMoney'
             },

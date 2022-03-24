@@ -17,14 +17,14 @@ const options = {
             display: false
         },
         x: {
-            display: false
+            display: true
         }
     }
 };
 
 const Chart = ({arr}) => {
     const [data, setData] = useState({
-        labels: arr.map( a => ''),
+        labels: ['Jan','Feb','Mar','Apr','May','Jul','Aug','Sep','Oct','Nov','Dec'],
         datasets: [
             {
                 label: 'data',
